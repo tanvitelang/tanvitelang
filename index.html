@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
   :root{
     --ink:#191625;
     --paper:#FFF8EF;
@@ -33,6 +32,35 @@
     font-family:'Inter', sans-serif;
     line-height:1.55;
     overflow-x:hidden;
+    position:relative;
+  }
+
+  /* Fixed Blurred Background & Overlay */
+  .bg-mountain {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110vw;
+    height: 110vh;
+    background-image: url('IMG_20181229_102646.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(16px) saturate(1.1) brightness(0.98);
+    z-index: -2;
+    transform: translateZ(0);
+  }
+
+  .bg-tint {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 248, 239, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: -1;
   }
 
   ::selection{ background:var(--tangerine); color:var(--paper); }
@@ -40,7 +68,7 @@
   h1,h2,h3{
     font-family:'Space Grotesk', sans-serif;
     margin:0;
-    line-height:1.05;
+    line-height:1.1;
   }
 
   .mono{ font-family:'JetBrains Mono', monospace; }
@@ -54,24 +82,25 @@
     position:relative;
   }
 
-  /* ---------- floating symbols ---------- */
+  /* Floating mathematical symbols */
   .symbol{
     position:absolute;
     font-family:'Space Grotesk', serif;
     font-weight:700;
-    opacity:0.15;
+    opacity:0.18;
     user-select:none;
     pointer-events:none;
     z-index:0;
   }
 
-  /* ---------- nav ---------- */
+  /* Navigation */
   nav{
     position:sticky;
     top:0;
     z-index:50;
-    background:rgba(255,248,239,0.88);
-    backdrop-filter: blur(6px);
+    background:rgba(255,248,239,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom:2px solid var(--ink);
   }
   nav .wrap{
@@ -85,6 +114,7 @@
     font-weight:700;
     font-size:15px;
     letter-spacing:0.02em;
+    text-decoration:none;
   }
   .nav-mark span{ color:var(--grape); }
   .nav-links{
@@ -104,11 +134,12 @@
   .nav-links a:hover{ border-color: var(--grape); color:var(--grape); }
   .nav-links li:nth-child(2) a:hover{ border-color:var(--tangerine); color:var(--tangerine);}
   .nav-links li:nth-child(3) a:hover{ border-color:var(--mint); color:var(--mint);}
-  .nav-links li:nth-child(4) a:hover{ border-color:var(--bubblegum); color:var(--bubblegum);}
-  .nav-links li:nth-child(5) a:hover{ border-color:var(--sky); color:var(--sky);}
-  @media (max-width:640px){ .nav-links{ display:none; } }
+  .nav-links li:nth-child(4) a:hover{ border-color:var(--sky); color:var(--sky);}
+  .nav-links li:nth-child(5) a:hover{ border-color:var(--bubblegum); color:var(--bubblegum);}
+  .nav-links li:nth-child(6) a:hover{ border-color:var(--tangerine); color:var(--tangerine);}
+  @media (max-width:720px){ .nav-links{ display:none; } }
 
-  /* ---------- hero ---------- */
+  /* Hero Section */
   header.hero{
     padding:86px 0 70px;
     position:relative;
@@ -120,10 +151,11 @@
     font-weight:500;
     background:var(--ink);
     color:var(--paper);
-    padding:5px 12px;
+    padding:5px 14px;
     border-radius:100px;
-    transform:rotate(-2deg);
+    transform:rotate(-1.5deg);
     margin-bottom:22px;
+    box-shadow: 2px 2px 0 var(--grape);
   }
   h1.name{
     font-size:clamp(2.6rem, 8vw, 5.2rem);
@@ -137,28 +169,28 @@
   h1.name .hl::after{
     content:"";
     position:absolute;
-    left:-4px; right:-4px; bottom:6%;
-    height:38%;
+    left:-4px; right:-4px; bottom:8%;
+    height:36%;
     background:var(--tangerine);
     z-index:-1;
     transform:rotate(-1deg);
   }
   .tagline{
     margin-top:22px;
-    font-size:clamp(1.05rem, 2.4vw, 1.4rem);
-    max-width:640px;
+    font-size:clamp(1.05rem, 2.4vw, 1.35rem);
+    max-width:680px;
     color:var(--ink);
   }
   .tagline .tag-word{
     font-family:'JetBrains Mono', monospace;
     font-weight:600;
-    padding:1px 6px;
+    padding:2px 6px;
     border-radius:6px;
     display:inline-block;
   }
-  .t1{ background: color-mix(in srgb, var(--grape) 18%, transparent); }
-  .t2{ background: color-mix(in srgb, var(--mint) 22%, transparent); }
-  .t3{ background: color-mix(in srgb, var(--sky) 20%, transparent); }
+  .t1{ background: color-mix(in srgb, var(--grape) 20%, transparent); }
+  .t2{ background: color-mix(in srgb, var(--mint) 24%, transparent); }
+  .t3{ background: color-mix(in srgb, var(--sky) 22%, transparent); }
 
   .hero-links{
     margin-top:34px;
@@ -176,15 +208,22 @@
     border-radius:100px;
     background:var(--paper-2);
     box-shadow: var(--shadow);
-    transition: transform .12s ease;
+    transition: transform .12s ease, box-shadow .12s ease;
     display:inline-flex;
     align-items:center;
     gap:8px;
   }
-  .pill:hover{ transform: translate(-2px,-2px); }
+  .pill:hover{ 
+    transform: translate(-2px,-2px); 
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .pill:active{
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
   .pill.fill{ background:var(--grape); color:var(--paper-2); }
 
-  /* ---------- section chrome ---------- */
+  /* Sections */
   section{
     padding:64px 0;
     position:relative;
@@ -210,7 +249,7 @@
   .section-note{
     font-family:'JetBrains Mono', monospace;
     font-size:12.5px;
-    color: color-mix(in srgb, var(--ink) 60%, transparent);
+    color: color-mix(in srgb, var(--ink) 65%, transparent);
   }
 
   #about .section-num{ background:var(--grape); }
@@ -221,14 +260,7 @@
   #extra .section-num{ background:var(--grape); }
   #education .section-num{ background:var(--tangerine); }
 
-  /* wavy divider */
-  .divider{
-    width:100%;
-    height:26px;
-    display:block;
-  }
-
-  /* ---------- about ---------- */
+  /* About */
   .about-card{
     background:var(--paper-2);
     border:2px solid var(--ink);
@@ -236,11 +268,11 @@
     padding:30px 32px;
     box-shadow: var(--shadow);
     font-size:1.05rem;
-    max-width:720px;
+    max-width:740px;
   }
   .about-card b{ color:var(--grape); }
 
-  /* ---------- timeline (graph spine) ---------- */
+  /* Timeline */
   .timeline{
     position:relative;
     padding-left:34px;
@@ -311,7 +343,7 @@
     margin-top:2px;
   }
 
-  /* ---------- tools graph ---------- */
+  /* Tools Cloud */
   .tool-cloud{
     display:flex;
     flex-wrap:wrap;
@@ -326,11 +358,12 @@
     border-radius:10px;
     background:var(--paper-2);
     box-shadow: 3px 3px 0 var(--ink);
-    transition: transform .15s ease, background .15s ease;
+    transition: transform .15s ease, box-shadow .15s ease;
     cursor:default;
   }
   .tool-chip:hover{
     transform: rotate(-2deg) translateY(-2px);
+    box-shadow: 5px 5px 0 var(--ink);
   }
   .tool-chip.c1{ background: color-mix(in srgb, var(--grape) 16%, var(--paper-2)); }
   .tool-chip.c2{ background: color-mix(in srgb, var(--tangerine) 18%, var(--paper-2)); }
@@ -345,7 +378,7 @@
     color: color-mix(in srgb, var(--ink) 78%, transparent);
   }
 
-  /* ---------- roles / extra grid ---------- */
+  /* Cards Grid */
   .card-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -357,9 +390,14 @@
     border-radius:14px;
     padding:20px 22px;
     box-shadow: 4px 4px 0 var(--card-color, var(--ink));
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .info-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 var(--card-color, var(--ink));
   }
   .info-card h3{
-    font-size:1.02rem;
+    font-size:1.05rem;
     margin-bottom:4px;
   }
   .info-card .org{
@@ -377,7 +415,7 @@
   }
   .info-card li{ margin-bottom:4px; }
 
-  /* ---------- education ---------- */
+  /* Education */
   .edu-item{
     display:flex;
     gap:18px;
@@ -403,22 +441,25 @@
   .edu-meta{
     font-family:'JetBrains Mono', monospace;
     font-size:12.5px;
-    color: color-mix(in srgb, var(--ink) 60%, transparent);
+    color: color-mix(in srgb, var(--ink) 65%, transparent);
     margin-top:4px;
   }
 
-  /* ---------- footer ---------- */
+  /* Footer */
   footer{
-    padding:70px 0 60px;
+    padding:80px 0 60px;
     text-align:center;
     position:relative;
+    border-top:2px solid var(--ink);
+    margin-top:40px;
+    background:rgba(255,248,239,0.7);
   }
   footer h2{
     font-size:clamp(1.8rem, 5vw, 2.6rem);
   }
   footer p{
     margin-top:14px;
-    color: color-mix(in srgb, var(--ink) 70%, transparent);
+    color: color-mix(in srgb, var(--ink) 75%, transparent);
   }
   .footer-links{
     margin-top:28px;
@@ -431,286 +472,9 @@
     margin-top:50px;
     font-family:'JetBrains Mono', monospace;
     font-size:11.5px;
-    color: color-mix(in srgb, var(--ink) 45%, transparent);
+    color: color-mix(in srgb, var(--ink) 50%, transparent);
   }
 
   @media (prefers-reduced-motion: reduce){
     *{ scroll-behavior:auto !important; transition:none !important; }
   }
-
-  :focus-visible{
-    outline: 3px solid var(--sky);
-    outline-offset: 2px;
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="wrap">
-    <div class="nav-mark">T<span>()</span>T</div>
-    <ul class="nav-links">
-      <li><a href="#work">work</a></li>
-      <li><a href="#academic">research</a></li>
-      <li><a href="#tools">tools</a></li>
-      <li><a href="#roles">roles</a></li>
-      <li><a href="#education">education</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <span class="symbol" style="top:10px; left:70%; font-size:3.4rem; color:#6C3CE9; transform:rotate(8deg);">∑</span>
-    <span class="symbol" style="top:120px; left:4%; font-size:2.2rem; color:#FF4FA3; transform:rotate(-12deg);">C*</span>
-    <span class="symbol" style="top:200px; left:88%; font-size:2.6rem; color:#1AAE7E; transform:rotate(6deg);">π</span>
-    <span class="symbol" style="top:20px; left:40%; font-size:1.8rem; color:#2E8FFF; transform:rotate(-6deg);">∞</span>
-
-    <span class="eyebrow mono">currently: mathematician-turned-strategist (or the reverse, depending on the day)</span>
-    <h1 class="name">Tanvi <span class="hl">Telang</span></h1>
-    <p class="tagline">
-      I spend my time somewhere between
-      <span class="tag-word t1">operator algebras</span>,
-      <span class="tag-word t2">messy datasets</span>, and
-      <span class="tag-word t3">spreadsheets that refuse to behave</span>.
-      This is a running log of the research, the consulting, and the group projects in between.
-    </p>
-    <div class="hero-links">
-      <a class="pill fill" href="#work">see the work ↓</a>
-      <a class="pill" href="mailto:hello@example.com">say hi ✉</a>
-      <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <section id="about">
-    <div class="section-head">
-      <span class="section-num mono">§1</span>
-      <h2 class="section-title">The short version</h2>
-    </div>
-    <div class="about-card">
-      <p>I did an integrated BS-MS in mathematics at <b>IISER Bhopal</b>, wrote a thesis on C*-algebras, got selected for a summer school of 120 women mathematicians across India, and then went and did a research year at the <b>University of Houston</b> studying operator algebras and hyperbolic groups. Somewhere in the middle of all that, I also learned to build data warehouses, audit them, and put together the occasional 40-slide deck for a bank.</p>
-      <p style="margin-bottom:0;">I like problems that are precise. Doesn't matter if the proof is in a paper or in a spreadsheet.</p>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="section-head">
-      <span class="section-num mono">§2</span>
-      <h2 class="section-title">Work experience</h2>
-      <span class="section-note">in reverse chronological order, like a proof read backwards</span>
-    </div>
-
-    <div class="timeline">
-
-      <div class="node" style="--dot:var(--tangerine)">
-        <div class="node-head">
-          <span class="node-role">Additional Director</span>
-          <span class="node-org">· Katalytic Educational Foundation</span>
-        </div>
-        <div class="node-sub">Strategy &amp; Operations, Mathematics</div>
-      </div>
-
-      <div class="node" style="--dot:var(--grape)">
-        <div class="node-head">
-          <span class="node-role">Consultant</span>
-          <span class="node-org">· Grant Thornton</span>
-          <span class="node-date">Jan '24 – Aug '25</span>
-        </div>
-        <div class="node-sub">FS Transformation, Business Intelligence</div>
-        <ul>
-          <li>Led transition management for a national web portal — current-state assessment, risk analysis and mitigation, and full transition planning (scope, SLAs, governance, reporting).</li>
-          <li>Built a data warehouse for an agri-government bank and managed the project end to end.</li>
-          <li>Reviewed 20 AI models (regression, clustering, SARIMAX forecasting) built in Python and visualized in Power BI, and gave optimization recommendations.</li>
-          <li>Ran a full Enterprise Data Warehouse audit for a financial services firm — data quality, change &amp; incident management, design &amp; infrastructure, and security/user management.</li>
-          <li>Put together RFP decks in PowerPoint.</li>
-        </ul>
-      </div>
-
-      <div class="node" style="--dot:var(--mint)">
-        <div class="node-head">
-          <span class="node-role">Co-author, textbook chapter</span>
-          <span class="node-org">· Arizona State University (remote)</span>
-          <span class="node-date">Sep '23 – Nov '23</span>
-        </div>
-        <ul>
-          <li>Worked with Dr. Anuj Mubayi on multi-criteria decision analysis — weighted sum models, goal programming, and stochastic dynamic programming — resulting in a co-authored textbook chapter.</li>
-        </ul>
-      </div>
-
-      <div class="node" style="--dot:var(--sky)">
-        <div class="node-head">
-          <span class="node-role">Research Assistant</span>
-          <span class="node-org">· University of Houston</span>
-          <span class="node-date">Jan '23 – May '23</span>
-        </div>
-        <div class="node-sub">Supervisor: Dr. Mehrdad Kalantar</div>
-        <ul>
-          <li>Ran literature reviews on operator algebras to surface gaps and propose new directions.</li>
-          <li>Worked through operator algebra and hyperbolic group problems with Dr. Kalantar and the research group in weekly meetings.</li>
-        </ul>
-      </div>
-
-      <div class="node" style="--dot:var(--bubblegum)">
-        <div class="node-head">
-          <span class="node-role">Teaching Assistant</span>
-          <span class="node-org">· University of Houston</span>
-          <span class="node-date">Aug '22 – May '23</span>
-        </div>
-        <div class="node-sub">Calculus &amp; Real Analysis</div>
-        <ul>
-          <li>Ran recitation sessions for two sections of 50 students each.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="academic">
-    <div class="section-head">
-      <span class="section-num mono">§3</span>
-      <h2 class="section-title">Academic experiences</h2>
-    </div>
-    <div class="card-grid">
-      <div class="info-card" style="--card-color:var(--mint)">
-        <span class="org">IISER BHOPAL · MAR '21 – MAY '22</span>
-        <h3>MS Thesis, supervised by Dr. Angshuman Bhattacharya</h3>
-        <ul>
-          <li>Researched C*-algebras to build a comprehensive base for a research problem.</li>
-          <li>Defended the thesis in front of a 3-professor panel with a high score.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--grape)">
-        <span class="org">UNIVERSITY OF MONTANA · JUL '22</span>
-        <h3>GOALS — Groundwork in Operator Algebra Lecture Series</h3>
-        <ul>
-          <li>15-day NSF-funded summer school on operator algebras and early-stage research.</li>
-          <li>Completed group projects with fellow students.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--sky)">
-        <span class="org">FUNDED CONFERENCES</span>
-        <h3>UC San Diego (Feb '23) &amp; Michigan State University (Oct '22)</h3>
-        <ul>
-          <li>Discussed cutting-edge operator algebra research with mathematicians from around the world.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="tools">
-    <div class="section-head">
-      <span class="section-num mono">§4</span>
-      <h2 class="section-title">Tools I reach for</h2>
-    </div>
-    <div class="tool-cloud">
-      <span class="tool-chip c1">Python</span>
-      <span class="tool-chip c2">numpy</span>
-      <span class="tool-chip c3">pandas</span>
-      <span class="tool-chip c4">networkx</span>
-      <span class="tool-chip c5">Neural networks</span>
-      <span class="tool-chip c1">Cryptography</span>
-      <span class="tool-chip c2">Power BI</span>
-      <span class="tool-chip c3">Excel · Word · PowerPoint</span>
-      <span class="tool-chip c4">Prompt design for genAI</span>
-    </div>
-    <p class="tool-note">Yes, <span class="mono">networkx</span> is on there — which feels appropriate, given the thing on the left is basically a graph too.</p>
-  </section>
-
-  <section id="roles">
-    <div class="section-head">
-      <span class="section-num mono">§5</span>
-      <h2 class="section-title">Positions of responsibility</h2>
-    </div>
-    <div class="card-grid">
-      <div class="info-card" style="--card-color:var(--bubblegum)">
-        <span class="org">UNIVERSITY OF HOUSTON</span>
-        <h3>Officer, American Women in Mathematics</h3>
-        <ul>
-          <li>Managed the website for AWM activities.</li>
-          <li>Organized and coordinated events.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--grape)">
-        <span class="org">IISER BHOPAL</span>
-        <h3>Department Representative, Mathematics</h3>
-        <ul>
-          <li>Mediated communication between professors and students.</li>
-          <li>Organized problem-solving and discussion sessions.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--tangerine)">
-        <span class="org">IISER BHOPAL</span>
-        <h3>Member, Environmental &amp; Social Initiatives Council</h3>
-        <ul>
-          <li>Organized a Human Library for 150+ students and faculty members.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="extra">
-    <div class="section-head">
-      <span class="section-num mono">§6</span>
-      <h2 class="section-title">Extracurriculars</h2>
-    </div>
-    <div class="card-grid">
-      <div class="info-card" style="--card-color:var(--sky)">
-        <h3>Vigyan Vidushi, TIFR Mumbai</h3>
-        <ul><li>One of 120 women selected across India for a graduate summer school in mathematics.</li></ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--mint)">
-        <h3>Research internship, ISI Chennai</h3>
-      </div>
-      <div class="info-card" style="--card-color:var(--bubblegum)">
-        <h3>Basketball</h3>
-        <ul><li>Represented LMOIS at CBSE state-level clusters.</li></ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--grape)">
-        <h3>Course on Nonviolent Communication</h3>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="section-head">
-      <span class="section-num mono">§7</span>
-      <h2 class="section-title">Education</h2>
-    </div>
-    <div class="edu-item">
-      <span class="edu-badge mono">IISER</span>
-      <div class="edu-main">
-        <h3>Indian Institute of Science Education and Research (IISER), Bhopal</h3>
-        <div class="edu-meta">Integrated BS-MS · Aug '17 – May '23 · CPI 8.1/10</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <span class="edu-badge mono">LMOIS</span>
-      <div class="edu-main">
-        <h3>Lalaji Memorial Omega International School (LMOIS), Chennai</h3>
-        <div class="edu-meta">CBSE · 12th — 94.8% · 10th — 9.6 CGPA</div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    <span class="symbol" style="top:-10px; left:20%; font-size:2.4rem; color:#FF7A33; transform:rotate(-8deg);">√</span>
-    <span class="symbol" style="top:0px; left:75%; font-size:2rem; color:#6C3CE9; transform:rotate(10deg);">≅</span>
-    <h2>Let's talk math, data, or the space in between.</h2>
-    <p>Always happy to compare notes on operator algebras, weird datasets, or good problem sets.</p>
-    <div class="footer-links">
-      <a class="pill fill" href="mailto:hello@example.com">email me ✉</a>
-      <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
-      <a class="pill" href="https://linkedin.com/" target="_blank" rel="noopener">linkedin ↗</a>
-    </div>
-    <div class="foot-note">built with html, css, and a mild obsession with graph theory</div>
-  </div>
-</footer>
-
-</body>
-</html>
