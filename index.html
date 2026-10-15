@@ -478,3 +478,297 @@
   @media (prefers-reduced-motion: reduce){
     *{ scroll-behavior:auto !important; transition:none !important; }
   }
+
+  :focus-visible{
+    outline: 3px solid var(--sky);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Blurred Backdrop Layer -->
+<div class="bg-mountain"></div>
+<div class="bg-tint"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="nav-mark">T<span>()</span>T</a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#work">work</a></li>
+      <li><a href="#academic">research</a></li>
+      <li><a href="#tools">tools</a></li>
+      <li><a href="#roles">roles</a></li>
+      <li><a href="#extra">extra</a></li>
+      <li><a href="#education">education</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="symbol" style="top:10px; left:70%; font-size:3.4rem; color:#6C3CE9; transform:rotate(8deg);">∑</span>
+    <span class="symbol" style="top:120px; left:4%; font-size:2.2rem; color:#FF4FA3; transform:rotate(-12deg);">C*</span>
+    <span class="symbol" style="top:200px; left:88%; font-size:2.6rem; color:#1AAE7E; transform:rotate(6deg);">π</span>
+    <span class="symbol" style="top:20px; left:40%; font-size:1.8rem; color:#2E8FFF; transform:rotate(-6deg);">∞</span>
+
+    <span class="eyebrow mono">currently: mathematician-turned-strategist (or the reverse, depending on the day)</span>
+    <h1 class="name">Tanvi <span class="hl">Telang</span></h1>
+    <p class="tagline">
+      I spend my time somewhere between
+      <span class="tag-word t1">operator algebras</span>,
+      <span class="tag-word t2">messy datasets</span>, and
+      <span class="tag-word t3">spreadsheets that refuse to behave</span>.
+      This is a running log of the research, the consulting, and the group projects in between.
+    </p>
+    <div class="hero-links">
+      <a class="pill fill" href="#work">see the work ↓</a>
+      <a class="pill" href="mailto:tanvi.telang@example.com">say hi ✉</a>
+      <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="section-head">
+      <span class="section-num mono">§1</span>
+      <h2 class="section-title">The short version</h2>
+    </div>
+    <div class="about-card">
+      <p>I did an integrated BS-MS in mathematics at <b>IISER Bhopal</b>, wrote a thesis on C*-algebras, got selected for a summer school of 120 women mathematicians across India, and then spent a research year at the <b>University of Houston</b> studying operator algebras and hyperbolic groups. Somewhere in the middle of all that, I also learned to build data warehouses, audit enterprise systems, and put together the occasional 40-slide deck for a bank.</p>
+      <p style="margin-bottom:0;">I like problems that are precise. Doesn't matter if the proof lives in a paper or in a spreadsheet.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <span class="section-num mono">§2</span>
+      <h2 class="section-title">Work experience</h2>
+      <span class="section-note">in reverse chronological order, like a proof read backwards</span>
+    </div>
+
+    <div class="timeline">
+
+      <div class="node" style="--dot:var(--tangerine)">
+        <div class="node-head">
+          <span class="node-role">Additional Director</span>
+          <span class="node-org">· Katalytic Educational Foundation</span>
+          <span class="node-date">Aug '25 – Present</span>
+        </div>
+        <div class="node-sub">Strategy &amp; Operations, Mathematics</div>
+        <ul>
+          <li>Leading district-wide foundational math initiatives, curriculum frameworks, and educational governance.</li>
+          <li>Overseeing cross-district program delivery and operations across Sikkim schools.</li>
+        </ul>
+      </div>
+
+      <div class="node" style="--dot:var(--grape)">
+        <div class="node-head">
+          <span class="node-role">Consultant</span>
+          <span class="node-org">· Grant Thornton</span>
+          <span class="node-date">Jan '24 – Aug '25</span>
+        </div>
+        <div class="node-sub">FS Transformation, Business Intelligence</div>
+        <ul>
+          <li>Led transition management for a national web portal — current-state assessment, risk analysis and mitigation, and full transition planning (scope, SLAs, governance, reporting).</li>
+          <li>Built a data warehouse for an agri-government bank and managed the project end to end.</li>
+          <li>Reviewed 20 AI models (regression, clustering, SARIMAX forecasting) built in Python and visualized in Power BI, delivering targeted optimization recommendations.</li>
+          <li>Ran a full Enterprise Data Warehouse audit for a financial services firm — data quality, change &amp; incident management, design &amp; infrastructure, and security/user management.</li>
+          <li>Developed client pitches and RFP decks in PowerPoint.</li>
+        </ul>
+      </div>
+
+      <div class="node" style="--dot:var(--mint)">
+        <div class="node-head">
+          <span class="node-role">Co-author, textbook chapter</span>
+          <span class="node-org">· Arizona State University (remote)</span>
+          <span class="node-date">Sep '23 – Nov '23</span>
+        </div>
+        <ul>
+          <li>Worked with Dr. Anuj Mubayi on multi-criteria decision analysis — weighted sum models, goal programming, and stochastic dynamic programming — resulting in a co-authored textbook chapter.</li>
+        </ul>
+      </div>
+
+      <div class="node" style="--dot:var(--sky)">
+        <div class="node-head">
+          <span class="node-role">Research Assistant</span>
+          <span class="node-org">· University of Houston</span>
+          <span class="node-date">Jan '23 – May '23</span>
+        </div>
+        <div class="node-sub">Supervisor: Dr. Mehrdad Kalantar</div>
+        <ul>
+          <li>Ran literature reviews on operator algebras to surface research gaps and propose new directions.</li>
+          <li>Worked through operator algebra and hyperbolic group problems with Dr. Kalantar and the research group in weekly seminars.</li>
+        </ul>
+      </div>
+
+      <div class="node" style="--dot:var(--bubblegum)">
+        <div class="node-head">
+          <span class="node-role">Teaching Assistant</span>
+          <span class="node-org">· University of Houston</span>
+          <span class="node-date">Aug '22 – May '23</span>
+        </div>
+        <div class="node-sub">Calculus &amp; Real Analysis</div>
+        <ul>
+          <li>Ran recitation sessions for two sections of 50 undergraduate students each.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="academic">
+    <div class="section-head">
+      <span class="section-num mono">§3</span>
+      <h2 class="section-title">Academic experiences</h2>
+    </div>
+    <div class="card-grid">
+      <div class="info-card" style="--card-color:var(--mint)">
+        <span class="org">IISER BHOPAL · MAR '21 – MAY '22</span>
+        <h3>MS Thesis, supervised by Dr. Angshuman Bhattacharya</h3>
+        <ul>
+          <li>Researched C*-algebras to build a comprehensive foundation for classification problems.</li>
+          <li>Defended the thesis in front of a 3-professor panel with a high score.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--grape)">
+        <span class="org">UNIVERSITY OF MONTANA · JUL '22</span>
+        <h3>GOALS — Groundwork in Operator Algebra Lecture Series</h3>
+        <ul>
+          <li>15-day NSF-funded summer school on operator algebras and early-stage research.</li>
+          <li>Completed collaborative research projects with fellow attendees.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--sky)">
+        <span class="org">FUNDED CONFERENCES</span>
+        <h3>UC San Diego (Feb '23) &amp; Michigan State University (Oct '22)</h3>
+        <ul>
+          <li>Engaged with cutting-edge operator algebra research alongside international mathematicians.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="section-head">
+      <span class="section-num mono">§4</span>
+      <h2 class="section-title">Tools I reach for</h2>
+    </div>
+    <div class="tool-cloud">
+      <span class="tool-chip c1">Python</span>
+      <span class="tool-chip c2">numpy</span>
+      <span class="tool-chip c3">pandas</span>
+      <span class="tool-chip c4">networkx</span>
+      <span class="tool-chip c5">Neural networks</span>
+      <span class="tool-chip c1">Cryptography</span>
+      <span class="tool-chip c2">Power BI</span>
+      <span class="tool-chip c3">Excel · Word · PowerPoint</span>
+      <span class="tool-chip c4">Prompt design for genAI</span>
+    </div>
+    <p class="tool-note">Yes, <span class="mono">networkx</span> is on there — which feels appropriate, given the thing on the left is basically a graph too.</p>
+  </section>
+
+  <section id="roles">
+    <div class="section-head">
+      <span class="section-num mono">§5</span>
+      <h2 class="section-title">Positions of responsibility</h2>
+    </div>
+    <div class="card-grid">
+      <div class="info-card" style="--card-color:var(--bubblegum)">
+        <span class="org">UNIVERSITY OF HOUSTON</span>
+        <h3>Officer, American Women in Mathematics</h3>
+        <ul>
+          <li>Managed the website for AWM chapter activities.</li>
+          <li>Organized and coordinated departmental outreach events.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--grape)">
+        <span class="org">IISER BHOPAL</span>
+        <h3>Department Representative, Mathematics</h3>
+        <ul>
+          <li>Mediated communication between faculty and student body.</li>
+          <li>Organized problem-solving sessions and peer mentorship.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--tangerine)">
+        <span class="org">IISER BHOPAL</span>
+        <h3>Member, Environmental &amp; Social Initiatives Council</h3>
+        <ul>
+          <li>Organized a Human Library for 150+ students and faculty members.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="extra">
+    <div class="section-head">
+      <span class="section-num mono">§6</span>
+      <h2 class="section-title">Extracurriculars</h2>
+    </div>
+    <div class="card-grid">
+      <div class="info-card" style="--card-color:var(--sky)">
+        <span class="org">TIFR MUMBAI</span>
+        <h3>Vigyan Vidushi</h3>
+        <ul><li>One of 120 women selected across India for an advanced graduate summer school in mathematics.</li></ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--mint)">
+        <span class="org">ISI CHENNAI</span>
+        <h3>Research Internship</h3>
+        <ul><li>Summer research engagement exploring foundational pure mathematics and discrete structures.</li></ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--bubblegum)">
+        <span class="org">ATHLETICS</span>
+        <h3>Basketball</h3>
+        <ul><li>Represented LMOIS at CBSE state-level inter-school clusters.</li></ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--grape)">
+        <span class="org">INTERPERSONAL DYNAMICS</span>
+        <h3>Nonviolent Communication</h3>
+        <ul><li>Completed dedicated training in needs-based empathetic communication and conflict mediation.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <span class="section-num mono">§7</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-item">
+      <span class="edu-badge mono">IISER</span>
+      <div class="edu-main">
+        <h3>Indian Institute of Science Education and Research (IISER), Bhopal</h3>
+        <div class="edu-meta">Integrated BS-MS · Aug '17 – May '23 · CPI 8.1/10</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-badge mono">LMOIS</span>
+      <div class="edu-main">
+        <h3>Lalaji Memorial Omega International School (LMOIS), Chennai</h3>
+        <div class="edu-meta">CBSE · 12th — 94.8% · 10th — 9.6 CGPA</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="symbol" style="top:-10px; left:20%; font-size:2.4rem; color:#FF7A33; transform:rotate(-8deg);">√</span>
+    <span class="symbol" style="top:0px; left:75%; font-size:2rem; color:#6C3CE9; transform:rotate(10deg);">≅</span>
+    <h2>Let's talk math, data, or the space in between.</h2>
+    <p>Always happy to compare notes on operator algebras, weird datasets, or good problem sets.</p>
+    <div class="footer-links">
+      <a class="pill fill" href="mailto:tanvi.telang@example.com">email me ✉</a>
+      <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
+      <a class="pill" href="https://linkedin.com/" target="_blank" rel="noopener">linkedin ↗</a>
+    </div>
+    <div class="foot-note">built with html, css, and a mild obsession with graph theory</div>
+  </div>
+</footer>
+
+</body>
+</html>
