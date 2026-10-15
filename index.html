@@ -131,6 +131,7 @@
   .nav-links li:nth-child(5) a:hover{ border-color:var(--bubblegum); color:var(--bubblegum); }
   .nav-links li:nth-child(6) a:hover{ border-color:var(--grape); color:var(--grape); }
   .nav-links li:nth-child(7) a:hover{ border-color:var(--tangerine); color:var(--tangerine); }
+  .nav-links li:nth-child(8) a:hover{ border-color:var(--sky); color:var(--sky); }
   @media (max-width:720px){ .nav-links{ display:none; } }
 
   /* Hero */
@@ -248,6 +249,7 @@
   #about .section-num{ background:var(--grape); }
   #academic .section-num{ background:var(--mint); }
   #work .section-num{ background:var(--tangerine); }
+  #articles .section-num{ background:var(--bubblegum); }
   #tools .section-num{ background:var(--sky); }
   #roles .section-num{ background:var(--bubblegum); }
   #extra .section-num{ background:var(--grape); }
@@ -412,6 +414,25 @@
     border-top:1px dashed var(--line);
   }
 
+  /* Article links */
+  .info-card .blurb{
+    font-size:14.5px;
+    margin:8px 0 14px;
+  }
+  .card-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    font-weight:700;
+    text-decoration:none;
+    display:inline-block;
+    padding:6px 12px;
+    border:2px solid var(--ink);
+    border-radius:100px;
+    background:var(--paper);
+    transition:background .15s ease;
+  }
+  .card-link:hover{ background:var(--card-color, var(--grape)); color:var(--paper-2); }
+
   /* Education */
   .edu-item{
     display:flex;
@@ -495,6 +516,7 @@
       <li><a href="#about">about</a></li>
       <li><a href="#academic">research</a></li>
       <li><a href="#work">work</a></li>
+      <li><a href="#articles">articles</a></li>
       <li><a href="#tools">tools</a></li>
       <li><a href="#roles">roles</a></li>
       <li><a href="#extra">extra</a></li>
@@ -549,27 +571,32 @@
         <span class="org">IISER BHOPAL · MAR '21 – MAY '22</span>
         <h3>MS Thesis, supervised by Dr. Angshuman Bhattacharya</h3>
         <ul>
-          <li>Researched C*-algebras to build a comprehensive base for a research problem.</li>
-          <li>Defended the thesis in front of a 3-professor panel with a high score.</li>
+        <li>
+          Studied exotic C*-algebras that arise from ideals in $l^{\infty}(G)$.
+          <div style="margin-top: 8px;">
+            <a href="thesis.pdf" target="_blank" rel="noopener noreferrer" class="pill" style="padding: 4px 12px; font-size: 11.5px; box-shadow: 2px 2px 0 var(--ink);">
+              thesis.pdf 📄 ↗
+            </a>
+          </div>
+        </li>        
         </ul>
       </div>
       <div class="info-card" style="--card-color:var(--grape)">
         <span class="org">UNIVERSITY OF MONTANA · JUL '22</span>
         <h3>GOALS — Groundwork in Operator Algebra Lecture Series</h3>
         <ul>
-          <li>15-day NSF-funded summer school on operator algebras and early-stage research.</li>
+          <li>15-day NSF-funded summer school on operator algebras and early-stage research in the field.</li>
           <!-- TODO: add the mini-course topics, e.g. "Attended mini courses on ..." -->
           <li>Attended mini courses.</li>
           <li>Worked on group projects with fellow students.</li>
+          <li>More information can be found here- https://users.math.msu.edu/users/banelson/conferences/GOALS.html</li>
         </ul>
       </div>
       <div class="info-card" style="--card-color:var(--sky)">
         <span class="org">FUNDED CONFERENCES</span>
         <div class="entry">
-          <h3>UC San Diego (Feb '23)</h3>
-          <ul>
-            <li>Discussed cutting-edge operator algebra research with mathematicians from around the world.</li>
-          </ul>
+          <h3>Workshop on Von Neumann Algebras and Geometric Group Theory (Feb '23)</h3>
+                    <p class="sub"> UC San Diego</p>
         </div>
         <div class="entry">
           <h3>East Coast Operator Algebras Seminar (ECOAS) (Oct '22)</h3>
@@ -583,7 +610,7 @@
     <div class="section-head">
       <span class="section-num mono">§3</span>
       <h2 class="section-title">Work experience</h2>
-      <span class="section-note">in reverse chronological order, like a proof read backwards</span>
+      <span class="section-note">(in reverse chronological order)</span>
     </div>
 
     <div class="timeline">
@@ -592,7 +619,7 @@
         <div class="node-head">
           <span class="node-role">Additional Director</span>
           <span class="node-org">· Katalytic Educational Foundation</span>
-          <span class="node-date">Aug '25 – Present</span>
+          <span class="node-date">Jan '24 – July '26</span>
         </div>
         <div class="node-sub">Strategy &amp; Operations, Mathematics</div>
         <ul>
@@ -610,23 +637,13 @@
         <div class="node-sub">FS Transformation, Business Intelligence</div>
         <ul>
           <li>Led transition management for a national web portal — current-state assessment, risk analysis and mitigation, and full transition planning (scope, SLAs, governance, reporting).</li>
-          <li>Built a data warehouse for an agri-government bank and managed the project end to end.</li>
+          <li>Project management of a data warehouse for an agri-government bank project end to end.</li>
           <li>Reviewed 20 AI models (regression, clustering, SARIMAX forecasting) built in Python and visualized in Power BI, and gave optimization recommendations.</li>
           <li>Ran a full Enterprise Data Warehouse audit for a financial services firm — data quality, change &amp; incident management, design &amp; infrastructure, and security/user management.</li>
           <li>Put together RFP decks in PowerPoint.</li>
         </ul>
       </div>
 
-      <div class="node" style="--dot:var(--mint)">
-        <div class="node-head">
-          <span class="node-role">Co-author, textbook chapter</span>
-          <span class="node-org">· Arizona State University (remote)</span>
-          <span class="node-date">Sep '23 – Nov '23</span>
-        </div>
-        <ul>
-          <li>Worked with Dr. Anuj Mubayi on multi-criteria decision analysis — weighted sum models, goal programming, and stochastic dynamic programming — resulting in a co-authored textbook chapter.</li>
-        </ul>
-      </div>
 
       <div class="node" style="--dot:var(--sky)">
         <div class="node-head">
@@ -636,8 +653,7 @@
         </div>
         <div class="node-sub">Supervisor: Dr. Mehrdad Kalantar</div>
         <ul>
-          <li>Ran literature reviews on operator algebras to surface gaps and propose new directions.</li>
-          <li>Worked through operator algebra and hyperbolic group problems with Dr. Kalantar and the research group in weekly meetings.</li>
+          <li>Studied geomertic group theory. Worked through operator algebra and hyperbolic groups basics through reading groups. </li>
         </ul>
       </div>
 
@@ -647,18 +663,46 @@
           <span class="node-org">· University of Houston</span>
           <span class="node-date">Aug '22 – May '23</span>
         </div>
-        <div class="node-sub">Calculus &amp; Real Analysis</div>
+        <div class="node-sub">Calculus &amp; Group theory</div>
         <ul>
-          <li>Ran recitation sessions for two sections of 50 students each.</li>
+          <li>Held classes and recitations for two sections of 50 students each.</li>
+          <li>Grader and TA for group theory.</li>
         </ul>
       </div>
 
     </div>
   </section>
 
-  <section id="tools">
+  <section id="articles">
     <div class="section-head">
       <span class="section-num mono">§4</span>
+      <h2 class="section-title">Articles</h2>
+      <span class="section-note">things I've written about maths and education</span>
+    </div>
+    <div class="card-grid">
+      <div class="info-card" style="--card-color:var(--bubblegum)">
+        <span class="org">CONCEPT NOTE · FLN · NEP 2020</span>
+        <h3>Concept Note: Value-Guided Primary Education Curriculum</h3>
+      </div>
+      <div class="info-card" style="--card-color:var(--sky)">
+        <span class="org">ESSAY · MATHS EDUCATION</span>
+        <h3>The Myth of the "Math Person"</h3>
+        <li>
+          Refer to: 
+          <a href="https://www.youtube.com/watch?v=uJsHoS01pPg" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             style="color: var(--grape); font-weight: 600; text-decoration: underline;">
+            The Math People Myth — Nate Brown (TEDx) ↗
+          </a>
+        </li>      
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="section-head">
+      <span class="section-num mono">§5</span>
       <h2 class="section-title">Tools I can use <span class="section-note" style="font-weight:400;">(some moderately well, some only if I need to)</span></h2>
     </div>
     <div class="tool-cloud">
@@ -672,7 +716,7 @@
 
   <section id="roles">
     <div class="section-head">
-      <span class="section-num mono">§5</span>
+      <span class="section-num mono">§6</span>
       <h2 class="section-title">Positions of responsibility</h2>
     </div>
     <div class="card-grid">
@@ -704,7 +748,7 @@
 
   <section id="extra">
     <div class="section-head">
-      <span class="section-num mono">§6</span>
+      <span class="section-num mono">§7</span>
       <h2 class="section-title">Extracurriculars</h2>
     </div>
     <div class="card-grid">
@@ -727,7 +771,7 @@
 
   <section id="education">
     <div class="section-head">
-      <span class="section-num mono">§7</span>
+      <span class="section-num mono">§8</span>
       <h2 class="section-title">Education</h2>
     </div>
     <div class="edu-item">
