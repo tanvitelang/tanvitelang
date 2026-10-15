@@ -25,15 +25,15 @@
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.55;
-    overflow-x:hidden;
-    position:relative;
-  }
+  body {
+  margin: 0;
+  background: transparent; /* Changed from var(--paper) */
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+  position: relative;
+}
 
   /* Fixed Blurred Background & Overlay */
   .bg-mountain {
@@ -51,17 +51,18 @@
     transform: translateZ(0);
   }
 
-  .bg-tint {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 248, 239, 0.88);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    z-index: -1;
-  }
+  ..bg-tint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Light tint so text remains readable without hiding the photo */
+  background: rgba(255, 248, 239, 0.35); 
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
 
   ::selection{ background:var(--tangerine); color:var(--paper); }
 
