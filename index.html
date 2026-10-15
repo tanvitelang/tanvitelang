@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanvi Telang — Mathematician & Strategist</title>
-<meta name="description" content="Tanvi Telang — operator algebras, data, and a little bit of chaos theory in the good sense.">
+<title>Tanvi Telang</title>
+<meta name="description" content="Tanvi Telang — mathematics, education, math-ed and equity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,45 +24,36 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body {
-  margin: 0;
-  background: transparent; /* Changed from var(--paper) */
-  color: var(--ink);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.55;
-  overflow-x: hidden;
-  position: relative;
-}
+  html{
+    scroll-behavior:smooth;
+    background:#FFF8EF; /* fallback if the photo ever fails to load */
+  }
+  body{
+    margin:0;
+    background:transparent;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+  }
 
-  /* Fixed red Background & Overlay */
-/*.bg-mountain {
-  position: fixed;
-  top: -5%;
-  left: -5%;
-  width: 110vw;
-  height: 110vh;
-  background-image: url('./IMG_20181229_102646.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: (10px) saturate(1.2) brightness(0.98);
-  z-index: -2;
-  transform: translateZ(0);
-}*/
-  
-  html {
-  background: #FFF8EF url('IMG_20181229_102646.jpg') center / cover no-repeat fixed;
-}
-  .bg-tint {
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 248, 239, 0.35);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(8px);
-  z-index: -1;
-  pointer-events: none;
-}
+  /* Background photo: a plain fixed <img> (Safari-safe), with a blurred tint on top */
+  .bg-photo{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    z-index:-2;
+  }
+  .bg-tint{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(255,248,239,0.4);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    z-index:-1;
+    pointer-events:none;
+  }
 
   ::selection{ background:var(--tangerine); color:var(--paper); }
 
@@ -73,7 +64,6 @@
   }
 
   .mono{ font-family:'JetBrains Mono', monospace; }
-
   a{ color:inherit; }
 
   .wrap{
@@ -90,18 +80,20 @@
     font-weight:700;
     opacity:0.18;
     user-select:none;
+    -webkit-user-select:none;
     pointer-events:none;
     z-index:0;
   }
 
   /* Navigation */
   nav{
+    position:-webkit-sticky;
     position:sticky;
     top:0;
     z-index:50;
     background:rgba(255,248,239,0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
     border-bottom:2px solid var(--ink);
   }
   nav .wrap{
@@ -130,17 +122,18 @@
     text-decoration:none;
     padding:4px 2px;
     border-bottom:2px solid transparent;
-    transition: border-color .15s ease, color .15s ease;
+    transition:border-color .15s ease, color .15s ease;
   }
-  .nav-links a:hover{ border-color: var(--grape); color:var(--grape); }
-  .nav-links li:nth-child(2) a:hover{ border-color:var(--tangerine); color:var(--tangerine);}
-  .nav-links li:nth-child(3) a:hover{ border-color:var(--mint); color:var(--mint);}
-  .nav-links li:nth-child(4) a:hover{ border-color:var(--sky); color:var(--sky);}
-  .nav-links li:nth-child(5) a:hover{ border-color:var(--bubblegum); color:var(--bubblegum);}
-  .nav-links li:nth-child(6) a:hover{ border-color:var(--tangerine); color:var(--tangerine);}
+  .nav-links li:nth-child(1) a:hover{ border-color:var(--grape); color:var(--grape); }
+  .nav-links li:nth-child(2) a:hover{ border-color:var(--mint); color:var(--mint); }
+  .nav-links li:nth-child(3) a:hover{ border-color:var(--tangerine); color:var(--tangerine); }
+  .nav-links li:nth-child(4) a:hover{ border-color:var(--sky); color:var(--sky); }
+  .nav-links li:nth-child(5) a:hover{ border-color:var(--bubblegum); color:var(--bubblegum); }
+  .nav-links li:nth-child(6) a:hover{ border-color:var(--grape); color:var(--grape); }
+  .nav-links li:nth-child(7) a:hover{ border-color:var(--tangerine); color:var(--tangerine); }
   @media (max-width:720px){ .nav-links{ display:none; } }
 
-  /* Hero Section */
+  /* Hero */
   header.hero{
     padding:86px 0 70px;
     position:relative;
@@ -156,7 +149,7 @@
     border-radius:100px;
     transform:rotate(-1.5deg);
     margin-bottom:22px;
-    box-shadow: 2px 2px 0 var(--grape);
+    box-shadow:2px 2px 0 var(--grape);
   }
   h1.name{
     font-size:clamp(2.6rem, 8vw, 5.2rem);
@@ -189,9 +182,8 @@
     border-radius:6px;
     display:inline-block;
   }
-  .t1{ background: color-mix(in srgb, var(--grape) 20%, transparent); }
-  .t2{ background: color-mix(in srgb, var(--mint) 24%, transparent); }
-  .t3{ background: color-mix(in srgb, var(--sky) 22%, transparent); }
+  .t1{ background:rgba(108,60,233,0.2); }
+  .t2{ background:rgba(26,174,126,0.24); }
 
   .hero-links{
     margin-top:34px;
@@ -208,19 +200,19 @@
     border:2px solid var(--ink);
     border-radius:100px;
     background:var(--paper-2);
-    box-shadow: var(--shadow);
-    transition: transform .12s ease, box-shadow .12s ease;
+    box-shadow:var(--shadow);
+    transition:transform .12s ease, box-shadow .12s ease;
     display:inline-flex;
     align-items:center;
     gap:8px;
   }
-  .pill:hover{ 
-    transform: translate(-2px,-2px); 
-    box-shadow: 6px 6px 0 var(--ink);
+  .pill:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--ink);
   }
   .pill:active{
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--ink);
+    transform:translate(2px,2px);
+    box-shadow:2px 2px 0 var(--ink);
   }
   .pill.fill{ background:var(--grape); color:var(--paper-2); }
 
@@ -250,12 +242,12 @@
   .section-note{
     font-family:'JetBrains Mono', monospace;
     font-size:12.5px;
-    color: color-mix(in srgb, var(--ink) 65%, transparent);
+    color:rgba(25,22,37,0.65);
   }
 
   #about .section-num{ background:var(--grape); }
-  #work .section-num{ background:var(--tangerine); }
   #academic .section-num{ background:var(--mint); }
+  #work .section-num{ background:var(--tangerine); }
   #tools .section-num{ background:var(--sky); }
   #roles .section-num{ background:var(--bubblegum); }
   #extra .section-num{ background:var(--grape); }
@@ -267,10 +259,11 @@
     border:2px solid var(--ink);
     border-radius:var(--radius);
     padding:30px 32px;
-    box-shadow: var(--shadow);
+    box-shadow:var(--shadow);
     font-size:1.05rem;
     max-width:740px;
   }
+  .about-card p{ margin:0; }
   .about-card b{ color:var(--grape); }
 
   /* Timeline */
@@ -285,7 +278,7 @@
     top:6px;
     bottom:6px;
     width:3px;
-    background: repeating-linear-gradient(
+    background:repeating-linear-gradient(
       to bottom,
       var(--ink) 0 6px,
       transparent 6px 12px
@@ -303,7 +296,7 @@
     top:4px;
     width:20px; height:20px;
     border-radius:50%;
-    background: var(--dot, var(--grape));
+    background:var(--dot, var(--grape));
     border:3px solid var(--ink);
   }
   .node-head{
@@ -320,7 +313,7 @@
   }
   .node-org{
     font-weight:600;
-    color: var(--dot, var(--grape));
+    color:var(--dot, var(--grape));
   }
   .node-date{
     font-family:'JetBrains Mono', monospace;
@@ -340,11 +333,11 @@
   .node-sub{
     font-family:'JetBrains Mono', monospace;
     font-size:12.5px;
-    color: color-mix(in srgb, var(--ink) 65%, transparent);
+    color:rgba(25,22,37,0.7);
     margin-top:2px;
   }
 
-  /* Tools Cloud */
+  /* Tools */
   .tool-cloud{
     display:flex;
     flex-wrap:wrap;
@@ -358,31 +351,24 @@
     border:2px solid var(--ink);
     border-radius:10px;
     background:var(--paper-2);
-    box-shadow: 3px 3px 0 var(--ink);
-    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform .15s ease, box-shadow .15s ease;
     cursor:default;
   }
   .tool-chip:hover{
-    transform: rotate(-2deg) translateY(-2px);
-    box-shadow: 5px 5px 0 var(--ink);
+    transform:rotate(-2deg) translateY(-2px);
+    box-shadow:5px 5px 0 var(--ink);
   }
-  .tool-chip.c1{ background: color-mix(in srgb, var(--grape) 16%, var(--paper-2)); }
-  .tool-chip.c2{ background: color-mix(in srgb, var(--tangerine) 18%, var(--paper-2)); }
-  .tool-chip.c3{ background: color-mix(in srgb, var(--mint) 18%, var(--paper-2)); }
-  .tool-chip.c4{ background: color-mix(in srgb, var(--bubblegum) 16%, var(--paper-2)); }
-  .tool-chip.c5{ background: color-mix(in srgb, var(--sky) 16%, var(--paper-2)); }
+  .tool-chip.c1{ background:#E9E1FB; }
+  .tool-chip.c2{ background:#FFE6D6; }
+  .tool-chip.c3{ background:#D8F3EA; }
+  .tool-chip.c4{ background:#FFDDEE; }
+  .tool-chip.c5{ background:#DCEBFF; }
 
-  .tool-note{
-    margin-top:20px;
-    font-size:14.5px;
-    max-width:600px;
-    color: color-mix(in srgb, var(--ink) 78%, transparent);
-  }
-
-  /* Cards Grid */
+  /* Cards */
   .card-grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:20px;
   }
   .info-card{
@@ -390,21 +376,22 @@
     border:2px solid var(--ink);
     border-radius:14px;
     padding:20px 22px;
-    box-shadow: 4px 4px 0 var(--card-color, var(--ink));
-    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow:4px 4px 0 var(--card-color, var(--ink));
+    transition:transform .15s ease, box-shadow .15s ease;
   }
   .info-card:hover{
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 0 var(--card-color, var(--ink));
+    transform:translateY(-2px);
+    box-shadow:6px 6px 0 var(--card-color, var(--ink));
   }
   .info-card h3{
     font-size:1.05rem;
     margin-bottom:4px;
   }
+  .info-card h3 + ul{ margin-top:8px; }
   .info-card .org{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
-    color: var(--card-color, var(--grape));
+    color:var(--card-color, var(--grape));
     font-weight:700;
     margin-bottom:10px;
     display:block;
@@ -415,6 +402,15 @@
     font-size:14.5px;
   }
   .info-card li{ margin-bottom:4px; }
+  .info-card .sub{
+    font-size:14.5px;
+    margin:0;
+  }
+  .info-card .entry + .entry{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
 
   /* Education */
   .edu-item{
@@ -442,7 +438,7 @@
   .edu-meta{
     font-family:'JetBrains Mono', monospace;
     font-size:12.5px;
-    color: color-mix(in srgb, var(--ink) 65%, transparent);
+    color:rgba(25,22,37,0.7);
     margin-top:4px;
   }
 
@@ -460,7 +456,7 @@
   }
   footer p{
     margin-top:14px;
-    color: color-mix(in srgb, var(--ink) 75%, transparent);
+    color:rgba(25,22,37,0.8);
   }
   .footer-links{
     margin-top:28px;
@@ -473,7 +469,7 @@
     margin-top:50px;
     font-family:'JetBrains Mono', monospace;
     font-size:11.5px;
-    color: color-mix(in srgb, var(--ink) 50%, transparent);
+    color:rgba(25,22,37,0.55);
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -481,15 +477,15 @@
   }
 
   :focus-visible{
-    outline: 3px solid var(--sky);
-    outline-offset: 2px;
+    outline:3px solid var(--sky);
+    outline-offset:2px;
   }
 </style>
 </head>
 <body>
 
-<!-- Blurred Backdrop Layer -->
-<div class="bg-mountain"></div>
+<!-- Background photo (file must sit next to index.html) -->
+<img class="bg-photo" src="IMG_20181229_102646.jpg" alt="">
 <div class="bg-tint"></div>
 
 <nav>
@@ -497,8 +493,8 @@
     <a href="#" class="nav-mark">T<span>()</span>T</a>
     <ul class="nav-links">
       <li><a href="#about">about</a></li>
-      <li><a href="#work">work</a></li>
       <li><a href="#academic">research</a></li>
+      <li><a href="#work">work</a></li>
       <li><a href="#tools">tools</a></li>
       <li><a href="#roles">roles</a></li>
       <li><a href="#extra">extra</a></li>
@@ -514,18 +510,18 @@
     <span class="symbol" style="top:200px; left:88%; font-size:2.6rem; color:#1AAE7E; transform:rotate(6deg);">π</span>
     <span class="symbol" style="top:20px; left:40%; font-size:1.8rem; color:#2E8FFF; transform:rotate(-6deg);">∞</span>
 
-    <span class="eyebrow mono">currently: mathematician-turned-strategist (or the reverse, depending on the day)</span>
+    <span class="eyebrow mono">Interests: mathematics, education, math-ed and equity</span>
     <h1 class="name">Tanvi <span class="hl">Telang</span></h1>
     <p class="tagline">
-      I spend my time somewhere between
-      <span class="tag-word t1">operator algebras</span>,
-      <span class="tag-word t2">messy datasets</span>, and
-      <span class="tag-word t3">spreadsheets that refuse to behave</span>.
-      This is a running log of the research, the consulting, and the group projects in between.
+      I enjoy studying <span class="tag-word t1">mathematics</span>, and making mathematics
+      <span class="tag-word t2">simpler and accessible</span>.
+      This is a running log of my research, adventures, and other interests.
     </p>
     <div class="hero-links">
-      <a class="pill fill" href="#work">see the work ↓</a>
+      <a class="pill fill" href="#academic">see the work ↓</a>
+      <!-- TODO: replace with your real email -->
       <a class="pill" href="mailto:tanvi.telang@example.com">say hi ✉</a>
+      <!-- TODO: replace with your real GitHub profile URL -->
       <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
     </div>
   </div>
@@ -539,14 +535,53 @@
       <h2 class="section-title">The short version</h2>
     </div>
     <div class="about-card">
-      <p>I did an integrated BS-MS in mathematics at <b>IISER Bhopal</b>, wrote a thesis on C*-algebras, got selected for a summer school of 120 women mathematicians across India, and then spent a research year at the <b>University of Houston</b> studying operator algebras and hyperbolic groups. Somewhere in the middle of all that, I also learned to build data warehouses, audit enterprise systems, and put together the occasional 40-slide deck for a bank.</p>
-      <p style="margin-bottom:0;">I like problems that are precise. Doesn't matter if the proof lives in a paper or in a spreadsheet.</p>
+      <p>I did an integrated BS-MS in mathematics at <b>IISER Bhopal</b>, worked on a thesis under the supervision of Dr Angshuman Bhattacharya, and did a research year at the <b>University of Houston</b> under the supervision of Dr Mehrdad Kalantar, where I got introduced to hyperbolic groups, amenable groups and Furstenberg boundaries. I took a break from academia due to some personal reasons and went on to explore the corporate world and the education sector back home in Sikkim, India.</p>
+    </div>
+  </section>
+
+  <section id="academic">
+    <div class="section-head">
+      <span class="section-num mono">§2</span>
+      <h2 class="section-title">Academic experiences</h2>
+    </div>
+    <div class="card-grid">
+      <div class="info-card" style="--card-color:var(--mint)">
+        <span class="org">IISER BHOPAL · MAR '21 – MAY '22</span>
+        <h3>MS Thesis, supervised by Dr. Angshuman Bhattacharya</h3>
+        <ul>
+          <li>Researched C*-algebras to build a comprehensive base for a research problem.</li>
+          <li>Defended the thesis in front of a 3-professor panel with a high score.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--grape)">
+        <span class="org">UNIVERSITY OF MONTANA · JUL '22</span>
+        <h3>GOALS — Groundwork in Operator Algebra Lecture Series</h3>
+        <ul>
+          <li>15-day NSF-funded summer school on operator algebras and early-stage research.</li>
+          <!-- TODO: add the mini-course topics, e.g. "Attended mini courses on ..." -->
+          <li>Attended mini courses.</li>
+          <li>Worked on group projects with fellow students.</li>
+        </ul>
+      </div>
+      <div class="info-card" style="--card-color:var(--sky)">
+        <span class="org">FUNDED CONFERENCES</span>
+        <div class="entry">
+          <h3>UC San Diego (Feb '23)</h3>
+          <ul>
+            <li>Discussed cutting-edge operator algebra research with mathematicians from around the world.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>East Coast Operator Algebras Seminar (ECOAS) (Oct '22)</h3>
+          <p class="sub">Michigan State University</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="work">
     <div class="section-head">
-      <span class="section-num mono">§2</span>
+      <span class="section-num mono">§3</span>
       <h2 class="section-title">Work experience</h2>
       <span class="section-note">in reverse chronological order, like a proof read backwards</span>
     </div>
@@ -576,9 +611,9 @@
         <ul>
           <li>Led transition management for a national web portal — current-state assessment, risk analysis and mitigation, and full transition planning (scope, SLAs, governance, reporting).</li>
           <li>Built a data warehouse for an agri-government bank and managed the project end to end.</li>
-          <li>Reviewed 20 AI models (regression, clustering, SARIMAX forecasting) built in Python and visualized in Power BI, delivering targeted optimization recommendations.</li>
+          <li>Reviewed 20 AI models (regression, clustering, SARIMAX forecasting) built in Python and visualized in Power BI, and gave optimization recommendations.</li>
           <li>Ran a full Enterprise Data Warehouse audit for a financial services firm — data quality, change &amp; incident management, design &amp; infrastructure, and security/user management.</li>
-          <li>Developed client pitches and RFP decks in PowerPoint.</li>
+          <li>Put together RFP decks in PowerPoint.</li>
         </ul>
       </div>
 
@@ -601,8 +636,8 @@
         </div>
         <div class="node-sub">Supervisor: Dr. Mehrdad Kalantar</div>
         <ul>
-          <li>Ran literature reviews on operator algebras to surface research gaps and propose new directions.</li>
-          <li>Worked through operator algebra and hyperbolic group problems with Dr. Kalantar and the research group in weekly seminars.</li>
+          <li>Ran literature reviews on operator algebras to surface gaps and propose new directions.</li>
+          <li>Worked through operator algebra and hyperbolic group problems with Dr. Kalantar and the research group in weekly meetings.</li>
         </ul>
       </div>
 
@@ -614,62 +649,25 @@
         </div>
         <div class="node-sub">Calculus &amp; Real Analysis</div>
         <ul>
-          <li>Ran recitation sessions for two sections of 50 undergraduate students each.</li>
+          <li>Ran recitation sessions for two sections of 50 students each.</li>
         </ul>
       </div>
 
-    </div>
-  </section>
-
-  <section id="academic">
-    <div class="section-head">
-      <span class="section-num mono">§3</span>
-      <h2 class="section-title">Academic experiences</h2>
-    </div>
-    <div class="card-grid">
-      <div class="info-card" style="--card-color:var(--mint)">
-        <span class="org">IISER BHOPAL · MAR '21 – MAY '22</span>
-        <h3>MS Thesis, supervised by Dr. Angshuman Bhattacharya</h3>
-        <ul>
-          <li>Researched C*-algebras to build a comprehensive foundation for classification problems.</li>
-          <li>Defended the thesis in front of a 3-professor panel with a high score.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--grape)">
-        <span class="org">UNIVERSITY OF MONTANA · JUL '22</span>
-        <h3>GOALS — Groundwork in Operator Algebra Lecture Series</h3>
-        <ul>
-          <li>15-day NSF-funded summer school on operator algebras and early-stage research.</li>
-          <li>Completed collaborative research projects with fellow attendees.</li>
-        </ul>
-      </div>
-      <div class="info-card" style="--card-color:var(--sky)">
-        <span class="org">FUNDED CONFERENCES</span>
-        <h3>UC San Diego (Feb '23) &amp; Michigan State University (Oct '22)</h3>
-        <ul>
-          <li>Engaged with cutting-edge operator algebra research alongside international mathematicians.</li>
-        </ul>
-      </div>
     </div>
   </section>
 
   <section id="tools">
     <div class="section-head">
       <span class="section-num mono">§4</span>
-      <h2 class="section-title">Tools I reach for</h2>
+      <h2 class="section-title">Tools I can use <span class="section-note" style="font-weight:400;">(some moderately well, some only if I need to)</span></h2>
     </div>
     <div class="tool-cloud">
-      <span class="tool-chip c1">Python</span>
-      <span class="tool-chip c2">numpy</span>
-      <span class="tool-chip c3">pandas</span>
-      <span class="tool-chip c4">networkx</span>
-      <span class="tool-chip c5">Neural networks</span>
-      <span class="tool-chip c1">Cryptography</span>
-      <span class="tool-chip c2">Power BI</span>
-      <span class="tool-chip c3">Excel · Word · PowerPoint</span>
-      <span class="tool-chip c4">Prompt design for genAI</span>
+      <span class="tool-chip c1">Python (numpy, pandas, networkx)</span>
+      <span class="tool-chip c2">LaTeX</span>
+      <span class="tool-chip c3">Power BI</span>
+      <span class="tool-chip c4">Excel · Word · PowerPoint</span>
+      <span class="tool-chip c5">Prompt design for genAI</span>
     </div>
-    <p class="tool-note">Yes, <span class="mono">networkx</span> is on there — which feels appropriate, given the thing on the left is basically a graph too.</p>
   </section>
 
   <section id="roles">
@@ -682,16 +680,16 @@
         <span class="org">UNIVERSITY OF HOUSTON</span>
         <h3>Officer, American Women in Mathematics</h3>
         <ul>
-          <li>Managed the website for AWM chapter activities.</li>
-          <li>Organized and coordinated departmental outreach events.</li>
+          <li>Managed the website for AWM activities.</li>
+          <li>Organized and coordinated events.</li>
         </ul>
       </div>
       <div class="info-card" style="--card-color:var(--grape)">
         <span class="org">IISER BHOPAL</span>
         <h3>Department Representative, Mathematics</h3>
         <ul>
-          <li>Mediated communication between faculty and student body.</li>
-          <li>Organized problem-solving sessions and peer mentorship.</li>
+          <li>Mediated communication between professors and students.</li>
+          <li>Organized problem-solving and discussion sessions.</li>
         </ul>
       </div>
       <div class="info-card" style="--card-color:var(--tangerine)">
@@ -711,24 +709,18 @@
     </div>
     <div class="card-grid">
       <div class="info-card" style="--card-color:var(--sky)">
-        <span class="org">TIFR MUMBAI</span>
-        <h3>Vigyan Vidushi</h3>
-        <ul><li>One of 120 women selected across India for an advanced graduate summer school in mathematics.</li></ul>
+        <h3>Vigyan Vidushi, TIFR Mumbai</h3>
+        <ul><li>One of 120 women selected across India for a graduate summer school in mathematics.</li></ul>
       </div>
       <div class="info-card" style="--card-color:var(--mint)">
-        <span class="org">ISI CHENNAI</span>
-        <h3>Research Internship</h3>
-        <ul><li>Summer research engagement exploring foundational pure mathematics and discrete structures.</li></ul>
+        <h3>Research internship, ISI Chennai</h3>
       </div>
       <div class="info-card" style="--card-color:var(--bubblegum)">
-        <span class="org">ATHLETICS</span>
         <h3>Basketball</h3>
-        <ul><li>Represented LMOIS at CBSE state-level inter-school clusters.</li></ul>
+        <ul><li>Represented LMOIS at CBSE state-level clusters.</li></ul>
       </div>
       <div class="info-card" style="--card-color:var(--grape)">
-        <span class="org">INTERPERSONAL DYNAMICS</span>
-        <h3>Nonviolent Communication</h3>
-        <ul><li>Completed dedicated training in needs-based empathetic communication and conflict mediation.</li></ul>
+        <h3>Course on Nonviolent Communication</h3>
       </div>
     </div>
   </section>
@@ -763,7 +755,9 @@
     <h2>Let's talk math, data, or the space in between.</h2>
     <p>Always happy to compare notes on operator algebras, weird datasets, or good problem sets.</p>
     <div class="footer-links">
+      <!-- TODO: replace with your real email -->
       <a class="pill fill" href="mailto:tanvi.telang@example.com">email me ✉</a>
+      <!-- TODO: replace with your real GitHub and LinkedIn profile URLs -->
       <a class="pill" href="https://github.com/" target="_blank" rel="noopener">github ↗</a>
       <a class="pill" href="https://linkedin.com/" target="_blank" rel="noopener">linkedin ↗</a>
     </div>
