@@ -36,7 +36,7 @@
 }
 
   /* Fixed Blurred Background & Overlay */
-.bg-mountain {
+/*.bg-mountain {
   position: fixed;
   top: -5%;
   left: -5%;
@@ -49,19 +49,19 @@
   filter: blur(10px) saturate(1.2) brightness(0.98);
   z-index: -2;
   transform: translateZ(0);
+}*/
+  
+  html {
+  background: #FFF8EF url('IMG_20181229_102646.jpg') center / cover no-repeat fixed;
 }
-
   .bg-tint {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  /* Light tint so text remains readable without hiding the photo */
-  background: rgba(255, 248, 239, 0.35); 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  inset: 0;
+  background: rgba(255, 248, 239, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: -1;
+  pointer-events: none;
 }
 
   ::selection{ background:var(--tangerine); color:var(--paper); }
