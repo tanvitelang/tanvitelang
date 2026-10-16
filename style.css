@@ -538,5 +538,20 @@
     gap:20px;
   }
 
+  /* photos and videos */
+  .media-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:12px;
+    margin-top:14px;
+  }
+  .media-grid img, .media-grid video{
+    width:100%;
+    height:auto;
+    display:block;
+    border:2px solid var(--ink);
+    border-radius:10px;
+  }
+
   /* spacing between stacked content blocks on detail pages */
   .stack > * + *{ margin-top:22px; }
