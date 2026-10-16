@@ -483,7 +483,7 @@
     position:absolute;
     left:-4px; right:-4px; bottom:8%;
     height:36%;
-    background:var(--hl, var(--tangerine));
+    background:transparent;
     z-index:-1;
     transform:rotate(-1deg);
   }
