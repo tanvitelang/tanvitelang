@@ -555,5 +555,25 @@
   }
   .media-grid img{ cursor:zoom-in; }
 
+  /* project blocks inside a role */
+  .project{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px dashed var(--line);
+  }
+  .project h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:1.05rem;
+    margin:0 0 8px;
+  }
+  .project h5{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    margin:12px 0 0;
+    color:rgba(25,22,37,0.7);
+  }
+  .project p{ margin:0 0 10px; font-size:14.5px; }
+  .project ul{ margin:0 0 10px; padding-left:20px; font-size:14.5px; }
+
   /* spacing between stacked content blocks on detail pages */
   .stack > * + *{ margin-top:22px; }
